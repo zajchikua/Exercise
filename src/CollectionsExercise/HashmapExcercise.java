@@ -1,3 +1,5 @@
+package CollectionsExercise;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -131,7 +133,7 @@ Find the length of the longest subarray with an equal number of 0s and 1s using 
      */
 
     public static void main(String[] args) {
-        System.out.println(compareStrings("urghi", "urgui"));
+        System.out.println(compareStrings("urgqwerttyyuiophiv", "urguipoiuytrewqb"));
         countOccurrences("can't be that just a coincidence");
         List<String> wordList = new ArrayList<>();
 
