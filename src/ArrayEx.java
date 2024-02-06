@@ -22,8 +22,38 @@ public class ArrayEx {
         }
         return sum;
     }
+
+    /*
+    find max product of two numbers on an unsorted array.
+    do not use sort
+     */
+    public static int maxProduct(int[] intArray){
+        int maxProduct = Integer.MIN_VALUE;
+        int arLen = intArray.length;
+        if(intArray.length == 0){
+            System.out.println("Invalid input");
+            return -1;
+        }
+        if(intArray.length == 1){
+            System.out.println("That was easy! but not very valid input");
+            return intArray[0];
+        }
+
+        for(int i = 0; i < arLen -1; i++){
+            for(int j =i+ 1; j < arLen; j++){
+                if(intArray[i] * intArray[j] > maxProduct){
+                    maxProduct = intArray[i] * intArray[j];
+                }
+            }
+        }
+        return maxProduct;
+    }
     public static void main(String[] args){
-        System.out.println(calculateSum(3, 2, 90, -0, -1));
+        int[] exercise2 = {1, -2, -3, -5, 7};
+
+        int[] exercise = {1, 2, 3, 5, 7};
+        System.out.println(maxProduct(exercise2));
+//        System.out.println(calculateSum(3, 2, 90, -0, -1));
 //        System.out.println(calculateSum(new int[]{3,2,90,0, -1}));
 //        reverseString("reverse_this_stringg");
 //        int b = 12345678;
