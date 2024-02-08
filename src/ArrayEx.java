@@ -65,11 +65,43 @@ public class ArrayEx {
             return firstTwo;
     }
 
+    //This is an algo when we are lineraly find 2 mins and 2 max numbers by trakcing them.
+    // then we are finding the product
+    public static int maxProduct3(int [] myArr)
+    {
+        int max1 = myArr[0];
+        int max2 = Integer.MIN_VALUE;
+        int min1 = myArr[0];
+        int min2 = Integer.MAX_VALUE;
+
+        for(int i = 0; i < myArr.length; i++) {
+            if (myArr[i] < min1) {
+                min2 = min1;
+                min1 = myArr[i];
+            } else if (myArr[i] < min2) {
+                min2 = myArr[i];
+            } else if (myArr[i] > max1) {
+                max2 = max1;
+                max1 = myArr[i];
+
+            } else if (myArr[i] > max2) {
+                max2 = myArr[i];
+            }
+        }
+        int maxProd = max1 * max2;
+        int minProd = min1 * min2;
+        if(minProd > maxProd){
+            return minProd;
+        } else return  maxProd;
+    }
+
         public static void main(String[] args){
-        int[] exercise2 = {1, -2, -3, -5, 7};
+        int[] exercise2 = {1, -2, -3, -5, -8, 0,  8, 7};
 
         int[] exercise = {1, 2, 3, 5, 7};
-        System.out.println(maxProduct2(exercise2));
+            System.out.println(maxProduct3(exercise2));
+
+            //System.out.println(maxProduct2(exercise2));
 //        System.out.println(calculateSum(3, 2, 90, -0, -1));
 //        System.out.println(calculateSum(new int[]{3,2,90,0, -1}));
 //        reverseString("reverse_this_stringg");
