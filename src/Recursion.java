@@ -41,12 +41,28 @@ Write a recursive Java method to calculate the sum of the first n natural number
         return n + naturalSum(n-1);
 
     }
+    public static int fibonacci(int n){
+        if(n<=1){
+            return n;
+        }
+        else
+            return fibonacci(n-1) + fibonacci(n-2);
+    }
+
+    public static String reverseString(String str){
+        if(str.isEmpty()){
+            return str;
+        }
+        else
+            return reverseString(str.substring(0));
+    }
     public static void main(String[] args) {
        // printNtimes("Miro & Evangelina", 5);
         //printNTimes("Miro & Evangelina", 5, 0);
         //printNtimes1("Miro", 5);
         //System.out.println(factorial(5));
-
-        System.out.println(naturalSum(5));
+        //System.out.println(naturalSum(5));
+//        System.out.println(fibonacci(7));
+        System.out.println(reverseString("asrting"));
     }
 }

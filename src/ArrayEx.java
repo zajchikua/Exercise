@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class ArrayEx {
     public static void reverseString(String s1){
         char[] stringAr = s1.toCharArray();
@@ -28,7 +30,7 @@ public class ArrayEx {
     do not use sort
      */
     public static int maxProduct(int[] intArray){
-        int maxProduct = Integer.MIN_VALUE;
+        int maxProduct = 1;
         int arLen = intArray.length;
         if(intArray.length == 0){
             System.out.println("Invalid input");
@@ -40,7 +42,7 @@ public class ArrayEx {
         }
 
         for(int i = 0; i < arLen -1; i++){
-            for(int j =i+ 1; j < arLen; j++){
+            for(int j = i+ 1; j < arLen; j++){
                 if(intArray[i] * intArray[j] > maxProduct){
                     maxProduct = intArray[i] * intArray[j];
                 }
@@ -48,11 +50,26 @@ public class ArrayEx {
         }
         return maxProduct;
     }
-    public static void main(String[] args){
+    public static int maxProduct2(int[] intArray)
+    {
+        if(intArray.length < 2){
+            System.out.println("Invalid input");
+        }
+        Arrays.sort(intArray);
+        int firstTwo = intArray[1]*intArray[0];
+        int lastTwo = intArray[intArray.length-1]*intArray[intArray.length-2];
+        if(firstTwo < lastTwo){
+            return lastTwo;
+        }
+        else
+            return firstTwo;
+    }
+
+        public static void main(String[] args){
         int[] exercise2 = {1, -2, -3, -5, 7};
 
         int[] exercise = {1, 2, 3, 5, 7};
-        System.out.println(maxProduct(exercise2));
+        System.out.println(maxProduct2(exercise2));
 //        System.out.println(calculateSum(3, 2, 90, -0, -1));
 //        System.out.println(calculateSum(new int[]{3,2,90,0, -1}));
 //        reverseString("reverse_this_stringg");
