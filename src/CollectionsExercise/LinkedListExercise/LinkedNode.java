@@ -22,7 +22,7 @@ public class LinkedNode < D > {
 
     public static LinkedNode<Integer> buildNode (int data){
         LinkedNode node = new LinkedNode();
-        node.dataValue = data ;
+        node.setDataValue(data );
         node.setNext(null);
         return node;
 
@@ -37,6 +37,25 @@ public class LinkedNode < D > {
         System.out.println("End of the list");
     }
 
+    //delete the middle node of a linked list!
+    public static LinkedNode deleteMiddle(LinkedNode head)
+    {
+        if(head == null || head.next == null){
+            return head;
+        }
+
+        LinkedNode fast = head;
+        LinkedNode slow = head;
+        while(fast != null && fast.getNext()!= null){
+            fast = fast.getNext().getNext();
+            head = head.getNext();
+            slow = head;
+        }
+        //when the fast reaches the finish, slow will be in the middle
+        //so delete slow
+        slow.setNext(head.getNext());
+        return head;
+    }
     public static void main ( String[] args ) {
         LinkedNode<Integer> head = buildNode(11);
         LinkedNode<Integer> node1 = buildNode(1);
@@ -53,6 +72,10 @@ public class LinkedNode < D > {
         System.out.println("Print a new list! -->/n" +
                 "!@@!@!@!@!@!@");
         printLinkedList(head);
+        System.out.println("Now print out after Delete Middle method is called");
+        System.out.println(deleteMiddle(head));
+        printLinkedList(head);
+
     }
 }
 
