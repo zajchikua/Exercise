@@ -1,3 +1,5 @@
+package CollectionsExercise;
+
 import java.util.Arrays;
 
 public class ArrayEx {
