@@ -74,8 +74,10 @@ public class LinkedNode < D > {
         printLinkedList(head);
         System.out.println("Now print out after Delete Middle method is called");
         System.out.println(deleteMiddle(head));
+        deleteMiddle(head);
         printLinkedList(head);
-
+        deleteMiddle(head);
+        printLinkedList(head);
     }
 }
 
