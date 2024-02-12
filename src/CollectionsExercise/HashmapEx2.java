@@ -1,8 +1,6 @@
 package CollectionsExercise;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class HashmapEx2 {
     public static void printBinary(int n){
@@ -34,7 +32,38 @@ public class HashmapEx2 {
         }
         System.out.println();
     }
+
+    /*
+    matching parenthesis
+     */
+    public static boolean matchParenthesis(String myString)
+    {
+        char[] newString = myString.toCharArray();
+        Stack<Character> stack = new Stack();
+        Map<Character, Character> mapParenthesis = Map.of(')','(',']','[', '>','<');
+        for(int i = 0; i< newString.length; i++)
+        {
+            char current = newString[i];
+            if( mapParenthesis.containsValue(current)){
+                stack.add(current);
+            }
+            if(mapParenthesis.containsKey(current))
+            {
+                if(stack.isEmpty() || stack.peek()!=mapParenthesis.get(current))
+                {
+                    return false;
+                }
+                if(stack.peek()==mapParenthesis.get(current))
+                {
+                    stack.pop();
+                }
+            }
+        }
+        return stack.isEmpty();
+
+    }
     public static void main ( String[] args ) {
+        System.out.println(matchParenthesis("<my parent[]> [] )yes"));
 
         /*generate first N binary numbers
         //binary number consists of 1 and 0 and
@@ -47,15 +76,15 @@ public class HashmapEx2 {
                             12 -> 1101
                             13 -> 1110
                             14 -> 1111
-        */
+
 
         //set up test cases
         printBinary(5);
         printBinary(-1);
-        printBinary(0);
-        printBinaryQueue(5);
+        printBinary(0);*/
+        //printBinaryQueue(10);
 
-        HashMap<String, Integer> wordsNums = new HashMap<>();
+        /*HashMap<String, Integer> wordsNums = new HashMap<>();
         wordsNums.put("ONE", 1);
         wordsNums.put("MILLION", 1000000);
         wordsNums.put("Gamolya", -475);
@@ -64,6 +93,6 @@ public class HashmapEx2 {
         System.out.println(wordsNums.entrySet());
         System.out.println(wordsNums.values());
         //list values and keys
-        System.out.println(wordsNums.keySet());
+        System.out.println(wordsNums.keySet());*/
     }
 }
