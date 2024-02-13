@@ -111,8 +111,20 @@ public static void mergeMaps(HashMap<String, Integer>hm1, HashMap<String, Intege
     System.out.println(hm1);
 }
 /*Remove Duplicates:
-Create a program that removes duplicate elements from an ArrayList using a HashMap.
-Anagrams Grouping:
+Create a program that removes duplicate elements from an ArrayList using a HashMap.*/
+   public static void removeDupes(List<String> myArr){
+       Map<String, Integer> stringOccur = new HashMap<>();
+       for(String s : myArr)
+       {
+           if(stringOccur.containsKey(s)){
+               stringOccur.put(s, stringOccur.get(s) + 1);
+           }
+           else
+               stringOccur.put(s, stringOccur.getOrDefault(s, 0)+1);
+       }
+       System.out.println(stringOccur.keySet());
+   }
+/*Anagrams Grouping:
 
 Given an array of strings, group anagrams together using a HashMap.
 Student Grades:
@@ -141,14 +153,16 @@ Find the length of the longest subarray with an equal number of 0s and 1s using 
         wordList.add("banana");
         wordList.add("orange");
         wordList.add("orange");
-        wordFreq(wordList);
-        HashMap<String, Integer> a = new HashMap<>();
-        a.put("apple", 1);
-        a.put("grape", 0);
-        for(Map.Entry<String, Integer> Entry: a.entrySet()){
-            System.out.println("This is key " + Entry.getKey());
-            System.out.println("This is value of the key " + Entry.getValue());
-        }
+        removeDupes(wordList);
+       // System.out.println(wordList);
+//        wordFreq(wordList);
+//        HashMap<String, Integer> a = new HashMap<>();
+//        a.put("apple", 1);
+//        a.put("grape", 0);
+//        for(Map.Entry<String, Integer> Entry: a.entrySet()){
+//            System.out.println("This is key " + Entry.getKey());
+//            System.out.println("This is value of the key " + Entry.getValue());
+//        }
 
     }
 //    public static void printString(String s1){
