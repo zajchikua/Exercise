@@ -138,4 +138,18 @@ public class Game {
     {
         return getPlayerHand(playerId).isEmpty();
     }
+
+    public boolean validCardPlay(UnoCard card)
+    {
+        return card.getColor() == validColor || card.getValue() == validValue;
+    }
+
+    public boolean checkPlayerTurn(String playerId) throws InvalidPlayerIdException
+    {
+        if(this.playersIds[this.currentPlayer] != playerId){
+            throw new InvalidPlayerIdException("It is not " + playerId +
+                    "'s turn.");
+        }
+
+    }
 }
