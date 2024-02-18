@@ -112,4 +112,30 @@ public class Game {
         }
         return this.playersIds[index];
     }
+
+    public String[] getPlayers()
+    {
+        return playersIds;
+    }
+    public ArrayList<UnoCard> getPlayerHand(String playerId)
+    {
+        int index = Arrays.asList(playersIds).indexOf(playerId);
+        return playerHand.get(index);
+    }
+
+    public int getPlayerHandSize(String playerId)
+    {
+        return getPlayerHand(playerId).size();
+    }
+
+    public UnoCard getPlayerCard(String playerId, int choice)
+    {
+        ArrayList<UnoCard> hand = getPlayerHand(playerId);
+        return hand.get(choice);
+    }
+
+    public boolean hasEmptyHand(String playerId)
+    {
+        return getPlayerHand(playerId).isEmpty();
+    }
 }
