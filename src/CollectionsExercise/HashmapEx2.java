@@ -63,7 +63,7 @@ public class HashmapEx2 {
 
     }
     public static void main ( String[] args ) {
-        System.out.println(matchParenthesis("<my parent[]> [] )yes"));
+        //System.out.println(matchParenthesis("<my parent[]> [] )yes"));
 
         /*generate first N binary numbers
         //binary number consists of 1 and 0 and
@@ -84,15 +84,16 @@ public class HashmapEx2 {
         printBinary(0);*/
         //printBinaryQueue(10);
 
-        /*HashMap<String, Integer> wordsNums = new HashMap<>();
+        HashMap<String, Integer> wordsNums = new HashMap<>();
         wordsNums.put("ONE", 1);
         wordsNums.put("MILLION", 1000000);
         wordsNums.put("Gamolya", -475);
         wordsNums.put("THREE", 3);
-        System.out.println(wordsNums);
-        System.out.println(wordsNums.entrySet());
-        System.out.println(wordsNums.values());
+//        System.out.println(wordsNums);
+//        System.out.println(wordsNums.entrySet());
+//        System.out.println(wordsNums.values());
         //list values and keys
-        System.out.println(wordsNums.keySet());*/
+        //System.out.println(wordsNums.keySet());
+        System.out.println(wordsNums.get("ONE"));
     }
 }

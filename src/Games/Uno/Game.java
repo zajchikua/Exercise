@@ -1,5 +1,7 @@
 package Games.Uno;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -41,12 +43,73 @@ public class Game {
         validColor = card.getColor();
         validValue = card.getValue();
 
-        if (card.getValue() == UnoCard.Value.Wild_Four ||card.getValue() == UnoCard.Value.DrawTwo)
+        if (card.getValue() == UnoCard.Value.Wild || card.getValue() == UnoCard.Value.Wild_Four
+                || card.getValue() == UnoCard.Value.DrawTwo)
         {
             start(game);
         }
 
+        if (card.getValue() == UnoCard.Value.Skip) {
+            JLabel message = new JLabel(playersIds[currentPlayer] + " was skipped.");
+            message.setFont(new Font("Calibri", Font.BOLD, 48));
+            JOptionPane.showMessageDialog(null, message);
 
+            if (gameDirection == false) {
+                currentPlayer = (currentPlayer + 1) % playersIds.length;
+            }
+            else if (gameDirection == true) {
+                currentPlayer = (currentPlayer - 1) % playersIds.length;
+                if(currentPlayer == -1){
+                    currentPlayer = playersIds.length -1;
+                }
+            }
+        }
 
+        if(card.getValue() == UnoCard.Value.Reverse)
+        {
+            JLabel message = new JLabel(playersIds[currentPlayer] + " has reversed the game.");
+            message.setFont(new Font("Calibri", Font.BOLD, 48));
+            JOptionPane.showMessageDialog(null, message);
+            gameDirection ^= true;
+            currentPlayer = playersIds.length - 1;
+        }
+
+        stockpile.add(card);
+    }
+
+    public UnoCard getTopCard()
+    {    return new UnoCard(validColor, validValue);
+    }
+
+    public ImageIcon getTopCardImage()
+    {
+        return new ImageIcon(validColor + "-" + validValue + ".png");
+    }
+
+    public boolean isGameOver()
+    {
+        for(String player : this.playersIds)
+        {
+            if(hasEmptyHand(player))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String getCurrentPlayer()
+    {
+        return this.playersIds[this.currentPlayer];
+    }
+
+    public String getPreviousPlayer(int i)
+    {
+        int index = this.currentPlayer - i;
+        if (index == -1 )
+        {
+            index = playersIds.length -1;
+        }
+        return this.playersIds[index];
     }
 }

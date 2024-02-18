@@ -29,22 +29,24 @@ public class LongestSubstring {
     public static String longestSubOptima(String stringToWorkOn)
     {
         String returnString = "";
+        int maxLength = -1;
         Map<Character, Integer> visited = new HashMap<>();
         for (int start = 0, end = 0; end < stringToWorkOn.length(); end++)
         {
-            char current = stringToWorkOn.charAt(start);
+            char current = stringToWorkOn.charAt(end);
 
-            if (visited.containsKey(current))
+            if (visited.containsKey(current) && visited.get(current) >= start)
             {
                 start = Math.max(visited.get(current)+1, start);
             }
             if (returnString.length() < end - start + 1)
             {
                 returnString = stringToWorkOn.substring(start, end + 1);
+                maxLength = Math.max(maxLength, returnString.length());
             }
             visited.put(current, end);
         }
-        return returnString;
+        return returnString + " and the lenght is " + maxLength;
     }
     public static String longestSubBruteForce(String myString)
     {

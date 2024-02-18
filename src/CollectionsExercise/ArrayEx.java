@@ -100,8 +100,9 @@ public class ArrayEx {
         public static void main(String[] args){
         int[] exercise2 = {1, -2, -3, -5, -8, 0,  8, 7};
 
+
         int[] exercise = {1, 2, 3, 5, 7};
-            System.out.println(maxProduct3(exercise2));
+          System.out.println(maxProduct3(exercise2));
 
             //System.out.println(maxProduct2(exercise2));
 //        System.out.println(calculateSum(3, 2, 90, -0, -1));

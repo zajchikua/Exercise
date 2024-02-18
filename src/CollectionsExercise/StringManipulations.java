@@ -63,8 +63,8 @@ public class StringManipulations {
                 .toList();
         System.out.println(toLower);
         List<String> toCapit = toLower.stream()
-                .map(String::toLowerCase)
+                .map(String::toUpperCase)
                 .toList();
-        System.out.println(toLower);
+        System.out.println(toCapit);
     }
 }
