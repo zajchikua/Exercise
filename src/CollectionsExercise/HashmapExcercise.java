@@ -168,38 +168,48 @@ public static void ransomNote(List<String> magazine, List<String> note)
             noteMap.put(w, 1);
 
     }
-
-    for(Map.Entry<String, Integer> entry : noteMap.entrySet())
+    for(String key : noteMap.keySet())
     {
-        String w = entry.getKey();;
-        Integer times = entry.getValue();
-        while(times > -1 || magMap.get(w)!=-1) {
-            if (magMap.containsKey(w)) {
-                times =-1;
-                noteMap.put(w, times);
-                magMap.put(w, magMap.get(w)-1);
-                if( magMap.get(w) < 0){
-                    System.out.println("No");
-                    break;
-                }
-            }
-            else
-            {
-                System.out.println("No");
-                break;
-
-            }
-        }
-
+        if(!magMap.containsKey(key))
+        {System.out.println("No");
+            return; }
+        if(noteMap.get(key) > magMap.get(key))
+        {System.out.println("No");
+        return;}
     }
-    if(!noteMap.containsValue(0))
-    {
-        System.out.println("No");
-    }
-    else {
-        System.out.println("Yes");
-    }
+    System.out.println("Yes");
 
+
+//    for(Map.Entry<String, Integer> entry : noteMap.entrySet())
+//    {
+//        String w = entry.getKey();;
+//        Integer times = entry.getValue();
+//        while(times > -1 || magMap.get(w)!=-1) {
+//            if (magMap.containsKey(w)) {
+//                times =-1;
+//                noteMap.put(w, times);
+//                magMap.put(w, magMap.get(w)-1);
+//                if( magMap.get(w) < 0){
+//                    System.out.println("No");
+//                    break;
+//                }
+//            }
+//            else
+//            {
+//                System.out.println("No");
+//                break;
+//
+//            }
+//        }
+//
+//    }
+//    if(!noteMap.containsValue(0))
+//    {
+//        System.out.println("No");
+//    }
+//    else {
+//        System.out.println("Yes");
+//    }
 }
     public static void main(String[] args) {
         System.out.println(compareStrings("urgqwerttyyuiophiv", "urguipoiuytrewqb"));
