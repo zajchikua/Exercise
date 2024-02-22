@@ -143,7 +143,64 @@ Longest Subarray with Equal Number of Zeros and Ones:
 
 Find the length of the longest subarray with an equal number of 0s and 1s using a HashMap.
      */
+public static void ransomNote(List<String> magazine, List<String> note)
+{
+    Map<String, Integer> magMap = new HashMap<>();
+    for(String w : magazine)
+    {
+        if(magMap.containsKey(w))
+        {
+            magMap.put(w, magMap.get(w)+1);
+        }
+        else
+            magMap.put(w, 1);
 
+    }
+
+    Map<String, Integer> noteMap = new HashMap<>();
+    for(String w : note)
+    {
+        if(noteMap.containsKey(w))
+        {
+            noteMap.put(w, noteMap.get(w)+1);
+        }
+        else
+            noteMap.put(w, 1);
+
+    }
+
+    for(Map.Entry<String, Integer> entry : noteMap.entrySet())
+    {
+        String w = entry.getKey();;
+        Integer times = entry.getValue();
+        while(times > -1 || magMap.get(w)!=-1) {
+            if (magMap.containsKey(w)) {
+                times =-1;
+                noteMap.put(w, times);
+                magMap.put(w, magMap.get(w)-1);
+                if( magMap.get(w) < 0){
+                    System.out.println("No");
+                    break;
+                }
+            }
+            else
+            {
+                System.out.println("No");
+                break;
+
+            }
+        }
+
+    }
+    if(!noteMap.containsValue(0))
+    {
+        System.out.println("No");
+    }
+    else {
+        System.out.println("Yes");
+    }
+
+}
     public static void main(String[] args) {
         System.out.println(compareStrings("urgqwerttyyuiophiv", "urguipoiuytrewqb"));
         countOccurrences("can't be that just a coincidence");

@@ -26,6 +26,8 @@ public class QuickSort {
             swap(array,leftPointer, rightPointer);
         }
         swap(array, leftPointer, rightInd);
+        quickSort(array, leftInd, leftPointer - 1);
+        quickSort(array, leftPointer + 1, leftPointer - 1);
     }
     private static void swap (int[] array, int ind1, int ind2)
     {
